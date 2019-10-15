@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:who_is_spy/config_page.dart';
 
 void main() => runApp(MyApp());
 
@@ -20,32 +21,24 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: WISHomePage(title: '誰是臥底'),
+      home: WISHomePage(),
     );
   }
 }
 
 class WISHomePage extends StatelessWidget {
-  WISHomePage({Key key, this.title}) : super(key: key);
-
-  // This widget is the home page of your application. It is stateful, meaning
-  // that it has a State object (defined below) that contains fields that affect
-  // how it looks.
-
-  // This class is the configuration for the state. It holds the values (in this
-  // case the title) provided by the parent (in this case the App widget) and
-  // used by the build method of the State. Fields in a Widget subclass are
-  // always marked "final".
-
-  final String title;
-
   @override
   Widget build(BuildContext context) {
     return Column(
     children: <Widget>[
       Text('誰是臥底'),
       RaisedButton(
-        onPressed: () {},
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => ConfigPage()),
+          );
+        },
         child: const Text(
           '開始遊戲',
           style: TextStyle(fontSize: 20)
